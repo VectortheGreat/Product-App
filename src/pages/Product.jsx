@@ -32,9 +32,18 @@ const Product = () => {
 
   let loc = location?.search.split("=")[1];
 
+  // useEffect(() => {
+  //   if (loc) {
+  //     setproductInfo(data.find((dt) => dt.id == loc));
+  //   }
+  // }, [loc]);
+
   useEffect(() => {
     if (loc) {
-      setproductInfo(data.find((dt) => dt.id == loc));
+      const foundProduct = data.find((dt) => dt.id == loc);
+      if (foundProduct) {
+        setproductInfo(foundProduct);
+      }
     }
   }, [loc]);
 
